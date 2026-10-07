@@ -1,0 +1,96 @@
+{
+  "name": "Blobby",
+  "version": 2,
+  "palette": {
+    "body": "#A17AF5",
+    "bodyShade": "#6241EE",
+    "eyeWhite": "#FFFFFF",
+    "pupil": "#050505",
+    "mouth": "#FFFFFF",
+    "mouthOutline": "#633BF0"
+  },
+  "parts": {
+    "bodyShape": "cloud",
+    "bumps": 4,
+    "bumpiness": 0.09,
+    "eyeCount": 2,
+    "eyeSize": 1,
+    "eyeSpacing": 0.15,
+    "eyeY": -0.1,
+    "pupilSize": 0.3,
+    "mouthWidth": 0.42,
+    "mouthY": 0.3,
+    "mouthThickness": 1
+  },
+  "expressions": {
+    "neutral": {
+      "eyeOpen": 1,
+      "lidTilt": 0,
+      "mouthCurve": 0,
+      "mouthOpen": 0,
+      "mouthWidth": 0.08,
+      "bodySquash": 0
+    },
+    "happy": {
+      "eyeOpen": 1,
+      "lidTilt": 0,
+      "mouthCurve": 0.85,
+      "mouthOpen": 0.65,
+      "mouthWidth": 0.95,
+      "bodySquash": 0
+    },
+    "annoyed": {
+      "eyeOpen": 0.5,
+      "lidTilt": 0,
+      "mouthCurve": -0.75,
+      "mouthOpen": 0,
+      "mouthWidth": 0.3,
+      "bodySquash": 0
+    },
+    "anxious": {
+      "eyeOpen": 1,
+      "lidTilt": 0,
+      "mouthCurve": -0.75,
+      "mouthOpen": 0,
+      "mouthWidth": 0,
+      "bodySquash": 0
+    },
+    "calm": {
+      "eyeOpen": 0.65,
+      "lidTilt": 0,
+      "mouthCurve": 0.8,
+      "mouthOpen": 0,
+      "mouthWidth": 0.35,
+      "bodySquash": 0
+    },
+    "sad": {
+      "eyeOpen": 0.6,
+      "lidTilt": 0.85,
+      "mouthCurve": -1,
+      "mouthOpen": 0.35,
+      "mouthWidth": 0.4,
+      "bodySquash": 0
+    },
+    "excited": {
+      "eyeOpen": 1,
+      "lidTilt": 0,
+      "mouthCurve": 0.85,
+      "mouthOpen": 1,
+      "mouthWidth": 0.65,
+      "bodySquash": 0
+    }
+  },
+  "touch": {
+    "tap": "happy",
+    "longPress": "annoyed",
+    "dragLooksAt": true,
+    "reactSeconds": 1.1,
+    "tapBounce": 1,
+    "haptics": true
+  },
+  "idle": {
+    "blink": true,
+    "breathe": true,
+    "lookAround": true
+  }
+}
