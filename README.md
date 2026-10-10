@@ -1,9 +1,15 @@
 # CharacterKit (v0.2)
 
-Interactive animated characters for SwiftUI. Design a character in the web editor, export a small JSON file, and drop it into your app. No animation tool, no runtime to learn.
+Interactive animated characters for SwiftUI. Design a character in the **[Web Editor](https://charakit.lovable.app/)**, export a small JSON file, and drop it into your app. No animation tool, no runtime to learn.
 
 <p align="center">
-  <img src="assets/web-editor.png" width="100%" alt="CharacterKit Web Editor" />
+  <a href="https://charakit.lovable.app/" target="_blank">
+    <img src="assets/web-editor.png" width="100%" alt="CharacterKit Web Editor" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://charakit.lovable.app/">👉 <strong>Launch Web Editor: charakit.lovable.app</strong></a>
 </p>
 
 <p align="center">
@@ -103,4 +109,4 @@ Anything missing falls back to a default. Everything is clamped to safe ranges b
 
 ## Keeping web and Swift in sync
 
-`CharacterRenderer.swift` and `RigState.swift` are the source of truth. The web editor and `tools/reference_render.py` copy their constants. If you change a number in one, change it in all three, then export a character from the editor and compare it with `CharacterDemoView` side by side.
+`CharacterRenderer.swift` and `RigState.swift` are the source of truth. The [web editor](https://charakit.lovable.app/) and `tools/reference_render.py` copy their constants. If you change a number in one, change it in all three, then export a character from the editor and compare it with `CharacterDemoView` side by side.
