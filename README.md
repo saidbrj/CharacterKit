@@ -25,16 +25,22 @@ import SwiftUI
 import CharacterKit
 
 struct ContentView: View {
-    @State private var mood = "neutral"
-    let spec = try! CharacterSpec.load(named: "mycharacter")   // mycharacter.json in your app bundle
+    @State private var mood = CharacterSpec.current.defaultMood
 
     var body: some View {
-        CharacterView(spec: spec, mood: mood) { event in
-            if event == .tap { /* play a sound, add a point... */ }
+        let spec = CharacterSpec.current
+        ZStack(alignment: .bottom) {
+            CharacterView(spec: spec, mood: mood) { _ in }
+                .ignoresSafeArea()
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(spec.expressionOrder, id: \.self) { name in
+                        Button(name.capitalized) { mood = name }
+                            .buttonStyle(.borderedProminent)
+                    }
+                }.padding()
+            }
         }
-        .frame(width: 280)
-
-        Button("Cheer up") { mood = "happy" }
     }
 }
 ```
