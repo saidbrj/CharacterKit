@@ -1,0 +1,69 @@
+{
+  "name": "FloppyEarsBlobby",
+  "version": 3,
+  "schemaMinor": 1,
+  "layout": { "mode": "contained" },
+  "palette": {
+    "body": "#A17AF5",
+    "bodyShade": "#6241EE",
+    "eyeWhite": "#FFFFFF",
+    "pupil": "#050505",
+    "mouth": "#FFFFFF",
+    "mouthOutline": "#633BF0",
+    "ear": "#A17AF5",
+    "earInner": "#A997F6"
+  },
+  "parts": {
+    "bodyShape": "cloud",
+    "bumps": 4,
+    "bumpiness": 0.09,
+    "eyeCount": 2,
+    "eyeSize": 1.07,
+    "eyeSpacing": 0.18,
+    "eyeY": -0.1,
+    "pupilSize": 0.3,
+    "mouthWidth": 0.42,
+    "mouthY": 0.33,
+    "mouthThickness": 1.0,
+    "ears": {
+      "style": "floppy",
+      "anchor": "side",
+      "length": 0.5,
+      "width": 0.28,
+      "spread": 0.45,
+      "baseY": -0.1,
+      "baseAngle": 12,
+      "tipRoundness": 0.9,
+      "bend": 0.0,
+      "innerScale": 0.6,
+      "spring": { "stiffness": 140, "damping": 9, "follow": 0.6 }
+    }
+  },
+  "expressions": {
+    "neutral": {
+      "eye": { "open": 1, "size": 1.07, "spacing": 0.18, "y": -0.1, "pupil": 0.3, "squint": 0, "lidTilt": 0, "style": 0 },
+      "mouth": { "curve": 0, "open": 0, "width": 0.5 },
+      "ears": { "perk": 0, "tilt": 0, "splay": 0 }
+    },
+    "happy": {
+      "eye": { "open": 1, "size": 1.07, "spacing": 0.18, "y": -0.23, "pupil": 0.3, "squint": 0.38, "lidTilt": 0, "style": 0 },
+      "mouth": { "curve": 0.85, "open": 0.65, "width": 0.95 },
+      "ears": { "perk": 0.2, "tilt": 0, "splay": 0.1 }
+    },
+    "annoyed": {
+      "eye": { "open": 0.5, "size": 1.07, "spacing": 0.18, "y": -0.1, "pupil": 0.3, "squint": 0, "lidTilt": 0, "style": 0 },
+      "mouth": { "curve": -0.75, "open": 0, "width": 0.3 },
+      "ears": { "perk": -0.3, "tilt": 0, "splay": 0.2 }
+    }
+  },
+  "expressionOrder": ["neutral", "happy", "annoyed"],
+  "defaultMood": "neutral",
+  "touch": {
+    "holdSeconds": 1.0,
+    "earFlick": 1.0,
+    "earLean": 0.6
+  },
+  "idle": {
+    "earTwitch": true
+  }
+}

@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Xcode & Swift Package Manager
+/.build/
+.swiftpm/
+DerivedData/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Temporary test captures & simulator screenshots
+simulator_*.png
+rendered-*.png
+reference_neutral.png
+*.svg.png

@@ -1,0 +1,46 @@
+{
+  "name": "NoEarsBlobby",
+  "version": 3,
+  "schemaMinor": 1,
+  "layout": { "mode": "contained" },
+  "palette": {
+    "body": "#A17AF5",
+    "bodyShade": "#6241EE",
+    "eyeWhite": "#FFFFFF",
+    "pupil": "#050505",
+    "mouth": "#FFFFFF",
+    "mouthOutline": "#633BF0"
+  },
+  "parts": {
+    "bodyShape": "cloud",
+    "bumps": 4,
+    "bumpiness": 0.09,
+    "eyeCount": 2,
+    "eyeSize": 1.07,
+    "eyeSpacing": 0.18,
+    "eyeY": -0.1,
+    "pupilSize": 0.3,
+    "mouthWidth": 0.42,
+    "mouthY": 0.33,
+    "mouthThickness": 1.0,
+    "ears": {
+      "style": "none"
+    }
+  },
+  "expressions": {
+    "neutral": {
+      "eye": { "open": 1, "size": 1.07, "spacing": 0.18, "y": -0.1, "pupil": 0.3, "squint": 0, "lidTilt": 0, "style": 0 },
+      "mouth": { "curve": 0, "open": 0, "width": 0.5 }
+    },
+    "happy": {
+      "eye": { "open": 1, "size": 1.07, "spacing": 0.18, "y": -0.23, "pupil": 0.3, "squint": 0.38, "lidTilt": 0, "style": 0 },
+      "mouth": { "curve": 0.85, "open": 0.65, "width": 0.95 }
+    },
+    "annoyed": {
+      "eye": { "open": 0.5, "size": 1.07, "spacing": 0.18, "y": -0.1, "pupil": 0.3, "squint": 0, "lidTilt": 0, "style": 0 },
+      "mouth": { "curve": -0.75, "open": 0, "width": 0.3 }
+    }
+  },
+  "expressionOrder": ["neutral", "happy", "annoyed"],
+  "defaultMood": "neutral"
+}

@@ -28,6 +28,7 @@ public struct CharacterView: View {
     @State private var touchStartTime: TimeInterval = 0
     @State private var isLongPressActive: Bool = false
     @State private var lastTapTime: TimeInterval = 0
+    @State private var holdTask: Task<Void, Never>? = nil
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     public init(
@@ -42,10 +43,13 @@ public struct CharacterView: View {
 
     public var body: some View {
         rig.baseMood = mood
-        return GeometryReader { geo in
+        let isFill = (spec.layout.mode.lowercased() == "fill")
+
+        let content = GeometryReader { geo in
             let viewSize = geo.size
             TimelineView(.animation) { timeline in
                 Canvas { context, size in
+                    rig.baseMood = mood
                     rig.step(
                         now: timeline.date.timeIntervalSinceReferenceDate,
                         spec: spec,
@@ -65,7 +69,17 @@ public struct CharacterView: View {
                     }
             )
         }
-        .aspectRatio(1, contentMode: .fit)
+
+        return Group {
+            if isFill {
+                content
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
+            } else {
+                content
+                    .aspectRatio(1, contentMode: .fit)
+            }
+        }
     }
 
     // MARK: Gestures
@@ -78,28 +92,37 @@ public struct CharacterView: View {
                     rig.moved = false
                     touchStartTime = RigState.now
                     isLongPressActive = false
+
+                    holdTask?.cancel()
+                    let holdDuration = spec.touch.holdSeconds
+                    holdTask = Task { @MainActor in
+                        try? await Task.sleep(nanoseconds: UInt64(holdDuration * 1_000_000_000))
+                        if !Task.isCancelled && rig.touching && !rig.moved && !isLongPressActive {
+                            isLongPressActive = true
+                            handleLongPress()
+                        }
+                    }
                 }
 
                 let distance = hypot(value.translation.width, value.translation.height)
                 if distance > 10 && !rig.moved {
                     rig.moved = true
+                    holdTask?.cancel()
+                    holdTask = nil
                     onEvent?(.dragBegan)
                 }
 
-                // Smoothly and immediately guide the character's pupils towards the finger/cursor
+                // Guide the character's pupils towards the finger/cursor
                 if spec.touch.dragLooksAt {
                     rig.lookTarget = normalized(value.location, in: size)
-                }
-
-                // Check for long press if finger is held still
-                if !rig.moved && !isLongPressActive && (RigState.now - touchStartTime) >= 0.5 {
-                    isLongPressActive = true
-                    handleLongPress()
                 }
             }
             .onEnded { value in
                 let distance = hypot(value.translation.width, value.translation.height)
                 let elapsed = RigState.now - touchStartTime
+
+                holdTask?.cancel()
+                holdTask = nil
 
                 rig.touching = false
                 rig.lookTarget = nil
@@ -111,7 +134,7 @@ public struct CharacterView: View {
                         rig.react(held, seconds: spec.touch.reactSeconds)
                         rig.heldReaction = nil
                     }
-                } else if distance < 20 && elapsed < 0.7 {
+                } else if distance < 20 && elapsed < spec.touch.holdSeconds {
                     handleTap()
                 } else {
                     onEvent?(.dragEnded)
@@ -128,7 +151,7 @@ public struct CharacterView: View {
             rig.react(name, seconds: spec.touch.reactSeconds)
         }
         if !reduceMotion {
-            rig.bump(6 * spec.touch.tapBounce)
+            rig.bump(6 * spec.touch.tapBounce, earFlick: spec.touch.earFlick)
         }
         haptic()
         onEvent?(.tap)

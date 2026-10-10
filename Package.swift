@@ -19,7 +19,10 @@ let package = Package(
         ),
         .testTarget(
             name: "CharacterKitTests",
-            dependencies: ["CharacterKit"]
+            dependencies: ["CharacterKit"],
+            resources: [
+                .process("Fixtures")
+            ]
         )
     ]
 )

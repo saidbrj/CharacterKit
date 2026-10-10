@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/character-spec.schema.json",
+  "title": "CharacterSpec v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "expressions"],
+  "definitions": {
+    "hex": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$" },
+    "name": { "type": "string", "pattern": "^[a-z][a-zA-Z0-9_]{0,23}$" },
+    "expression": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eyeOpen":    { "type": "number", "minimum": 0,  "maximum": 1 },
+        "lidTilt":    { "type": "number", "minimum": -1, "maximum": 1 },
+        "mouthCurve": { "type": "number", "minimum": -1, "maximum": 1 },
+        "mouthOpen":  { "type": "number", "minimum": 0,  "maximum": 1 },
+        "mouthWidth": { "type": "number", "minimum": 0,  "maximum": 1 },
+        "bodySquash": { "type": "number", "minimum": -1, "maximum": 1 }
+      }
+    }
+  },
+  "properties": {
+    "name": { "type": "string", "minLength": 1, "maxLength": 40 },
+    "version": { "type": "integer", "const": 2 },
+    "palette": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "body": { "$ref": "#/definitions/hex" },
+        "bodyShade": { "$ref": "#/definitions/hex" },
+        "eyeWhite": { "$ref": "#/definitions/hex" },
+        "pupil": { "$ref": "#/definitions/hex" },
+        "mouth": { "$ref": "#/definitions/hex" },
+        "mouthOutline": { "$ref": "#/definitions/hex" }
+      }
+    },
+    "parts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bodyShape": { "enum": ["cloud", "blob", "round"] },
+        "bumps": { "type": "integer", "minimum": 3, "maximum": 6 },
+        "bumpiness": { "type": "number", "minimum": 0, "maximum": 0.15 },
+        "eyeCount": { "type": "integer", "minimum": 1, "maximum": 2 },
+        "eyeSize": { "type": "number", "minimum": 0.5, "maximum": 1.6 },
+        "eyeSpacing": { "type": "number", "minimum": 0.15, "maximum": 0.6 },
+        "eyeY": { "type": "number", "minimum": -0.5, "maximum": 0.2 },
+        "pupilSize": { "type": "number", "minimum": 0.2, "maximum": 0.9 },
+        "mouthWidth": { "type": "number", "minimum": 0.2, "maximum": 0.9 },
+        "mouthY": { "type": "number", "minimum": 0.1, "maximum": 0.6 },
+        "mouthThickness": { "type": "number", "minimum": 0.5, "maximum": 2 }
+      }
+    },
+    "expressions": {
+      "type": "object",
+      "required": ["neutral"],
+      "minProperties": 1,
+      "maxProperties": 16,
+      "propertyNames": { "$ref": "#/definitions/name" },
+      "additionalProperties": { "$ref": "#/definitions/expression" }
+    },
+    "touch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tap": { "$ref": "#/definitions/name" },
+        "longPress": { "$ref": "#/definitions/name" },
+        "dragLooksAt": { "type": "boolean" },
+        "reactSeconds": { "type": "number", "minimum": 0.2, "maximum": 5 },
+        "tapBounce": { "type": "number", "minimum": 0, "maximum": 2 },
+        "haptics": { "type": "boolean" }
+      }
+    },
+    "idle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "blink": { "type": "boolean" },
+        "breathe": { "type": "boolean" },
+        "lookAround": { "type": "boolean" }
+      }
+    }
+  }
+}

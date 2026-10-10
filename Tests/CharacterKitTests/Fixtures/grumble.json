@@ -1,0 +1,340 @@
+{
+  "name": "Grumble",
+  "version": 3,
+  "schemaMinor": 1,
+  "layout": {
+    "mode": "fill",
+    "faceCenterY": 0.42,
+    "faceScale": 0.49,
+    "faceMaxHeight": 0.32,
+    "topInset": 0.2
+  },
+  "palette": {
+    "body": "#66A653",
+    "bodyShade": "#3C743F",
+    "eyeWhite": "#FFF5DB",
+    "pupil": "#182B20",
+    "mouth": "#35452A",
+    "mouthOutline": "#243921",
+    "brow": "#283D22",
+    "sparkle": "#FFE58A",
+    "pad": "#EBA081",
+    "cavity": "#252319",
+    "tongue": "#ED877D",
+    "tear": "#82D8F1",
+    "teeth": "#FFF9E8",
+    "ear": "#66A653",
+    "earInner": "#94B395"
+  },
+  "parts": {
+    "ears": {
+      "style": "elf",
+      "anchor": "top",
+      "length": 0.28,
+      "width": 0.23,
+      "tipRoundness": 0.1,
+      "spread": 0.44,
+      "baseY": -0.24,
+      "baseAngle": 12,
+      "bend": 0,
+      "innerScale": 0.6,
+      "spring": {
+        "stiffness": 140,
+        "damping": 9,
+        "follow": 0.6
+      }
+    },
+    "bodyShape": "cloud",
+    "bumps": 5,
+    "bumpiness": 0.13,
+    "eyeCount": 2,
+    "eyeSize": 0.98,
+    "eyeSpacing": 0.24,
+    "eyeY": -0.15,
+    "pupilSize": 0.35,
+    "mouthWidth": 0.42,
+    "mouthY": 0.35,
+    "mouthThickness": 1.3
+  },
+  "expressions": {
+    "neutral": {
+      "eye": {
+        "open": 0.65,
+        "size": 0.98,
+        "spacing": 0.24,
+        "y": -0.15,
+        "pupil": 0.35,
+        "squint": -0.15,
+        "lidTilt": -0.2,
+        "style": 0
+      },
+      "sparkle": 0,
+      "brow": {
+        "amount": 0.8,
+        "y": 0,
+        "tilt": -0.45,
+        "arch": -0.15
+      },
+      "mouth": {
+        "curve": -0.4,
+        "open": 0,
+        "width": 0.33,
+        "pad": 0.08,
+        "teeth": 0,
+        "tongue": 0
+      },
+      "tear": 0,
+      "body": {
+        "squash": -0.03
+      },
+      "ears": {
+        "perk": 0,
+        "tilt": 0,
+        "splay": 0
+      }
+    },
+    "grumpy": {
+      "eye": {
+        "open": 0.4,
+        "size": 0.98,
+        "spacing": 0.24,
+        "y": -0.14,
+        "pupil": 0.28,
+        "squint": -0.25,
+        "lidTilt": -0.5,
+        "style": 0
+      },
+      "sparkle": 0,
+      "brow": {
+        "amount": 1,
+        "y": 0.18,
+        "tilt": -0.85,
+        "arch": -0.3
+      },
+      "mouth": {
+        "curve": -0.75,
+        "open": 0.08,
+        "width": 0.44,
+        "pad": 0,
+        "teeth": 0,
+        "tongue": 0
+      },
+      "tear": 0,
+      "body": {
+        "squash": 0.12
+      },
+      "ears": {
+        "perk": 0,
+        "tilt": 0,
+        "splay": 0
+      }
+    },
+    "suspicious": {
+      "eye": {
+        "open": 0.48,
+        "size": 0.98,
+        "spacing": 0.26,
+        "y": -0.17,
+        "pupil": 0.23,
+        "squint": 0.2,
+        "lidTilt": 0.3,
+        "style": 0
+      },
+      "sparkle": 0,
+      "brow": {
+        "amount": 0.9,
+        "y": -0.15,
+        "tilt": 0.45,
+        "arch": 0.3
+      },
+      "mouth": {
+        "curve": -0.18,
+        "open": 0,
+        "width": 0.24,
+        "pad": 0.05,
+        "teeth": 0,
+        "tongue": 0
+      },
+      "tear": 0,
+      "body": {
+        "squash": -0.1
+      },
+      "ears": {
+        "perk": 0,
+        "tilt": 0,
+        "splay": 0
+      }
+    },
+    "prickly": {
+      "eye": {
+        "open": 0.8,
+        "size": 0.98,
+        "spacing": 0.23,
+        "y": -0.17,
+        "pupil": 0.25,
+        "squint": -0.1,
+        "lidTilt": -0.65,
+        "style": 0
+      },
+      "sparkle": 0,
+      "brow": {
+        "amount": 1,
+        "y": 0.15,
+        "tilt": -0.95,
+        "arch": -0.2
+      },
+      "mouth": {
+        "curve": -0.55,
+        "open": 0.38,
+        "width": 0.5,
+        "pad": 0,
+        "teeth": 0.65,
+        "tongue": 0
+      },
+      "tear": 0,
+      "body": {
+        "squash": -0.18
+      },
+      "ears": {
+        "perk": 0,
+        "tilt": 0,
+        "splay": 0
+      }
+    },
+    "secretlySmitten": {
+      "eye": {
+        "open": 0.72,
+        "size": 0.98,
+        "spacing": 0.22,
+        "y": -0.15,
+        "pupil": 0.58,
+        "squint": 0.28,
+        "lidTilt": -0.12,
+        "style": 0
+      },
+      "sparkle": 0.45,
+      "brow": {
+        "amount": 0.7,
+        "y": -0.08,
+        "tilt": -0.25,
+        "arch": 0.25
+      },
+      "mouth": {
+        "curve": 0.32,
+        "open": 0.04,
+        "width": 0.25,
+        "pad": 0.75,
+        "teeth": 0,
+        "tongue": 0
+      },
+      "tear": 0,
+      "body": {
+        "squash": 0.08
+      },
+      "ears": {
+        "perk": 0,
+        "tilt": 0,
+        "splay": 0
+      }
+    },
+    "cactusCrush": {
+      "eye": {
+        "open": 1,
+        "size": 0.98,
+        "spacing": 0.24,
+        "y": -0.18,
+        "pupil": 0.78,
+        "squint": 0.15,
+        "lidTilt": 0,
+        "style": 0
+      },
+      "sparkle": 1,
+      "brow": {
+        "amount": 0.55,
+        "y": -0.35,
+        "tilt": 0.2,
+        "arch": 0.6
+      },
+      "mouth": {
+        "curve": 0.8,
+        "open": 0.5,
+        "width": 0.55,
+        "pad": 1,
+        "teeth": 0.15,
+        "tongue": 0.55
+      },
+      "tear": 0,
+      "body": {
+        "squash": -0.12
+      },
+      "ears": {
+        "perk": 0,
+        "tilt": 0,
+        "splay": 0
+      }
+    },
+    "caughtSmiling": {
+      "eye": {
+        "open": 0.85,
+        "size": 0.98,
+        "spacing": 0.25,
+        "y": -0.16,
+        "pupil": 0.4,
+        "squint": 0.65,
+        "lidTilt": 0.05,
+        "style": 1
+      },
+      "sparkle": 0.2,
+      "brow": {
+        "amount": 0.65,
+        "y": -0.2,
+        "tilt": 0.3,
+        "arch": 0.45
+      },
+      "mouth": {
+        "curve": 0.95,
+        "open": 0.3,
+        "width": 0.52,
+        "pad": 0.95,
+        "teeth": 0.25,
+        "tongue": 0.15
+      },
+      "tear": 0.6,
+      "body": {
+        "squash": 0.2
+      },
+      "ears": {
+        "perk": 0,
+        "tilt": 0,
+        "splay": 0
+      }
+    }
+  },
+  "expressionOrder": [
+    "neutral",
+    "grumpy",
+    "suspicious",
+    "prickly",
+    "secretlySmitten",
+    "cactusCrush",
+    "caughtSmiling"
+  ],
+  "defaultMood": "neutral",
+  "touch": {
+    "tap": "grumpy",
+    "longPress": "cactusCrush",
+    "holdSeconds": 1,
+    "earFlick": 1,
+    "earLean": 0.6,
+    "dragLooksAt": true,
+    "reactSeconds": 1.1,
+    "tapBounce": 1,
+    "haptics": true
+  },
+  "idle": {
+    "blink": true,
+    "breathe": true,
+    "lookAround": true,
+    "earTwitch": true
+  }
+}
