@@ -2,6 +2,16 @@
 
 Interactive animated characters for SwiftUI. Design a character in the web editor, export a small JSON file, and drop it into your app. No animation tool, no runtime to learn.
 
+<p align="center">
+  <img src="assets/web-editor.png" width="100%" alt="CharacterKit Web Editor" />
+</p>
+
+<p align="center">
+  <img src="assets/simulator-portrait.png" width="340" alt="iOS Simulator - Portrait" />
+  &nbsp;&nbsp;
+  <img src="assets/simulator-landscape.png" width="480" alt="iOS Simulator - Landscape" />
+</p>
+
 > **Status:** prototype. The Swift was written without access to a compiler, so expect to fix a few small build errors the first time you open it in Xcode. The JSON schema, the sample, and the spring constants are checked; `tools/reference_render.py` shows what the Swift renderer should draw.
 
 ## What's new in v0.2
